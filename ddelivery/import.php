@@ -1,5 +1,5 @@
 <?php
-
+/*
 $config = mainConfiguration::getInstance();
 
 // Name of the file
@@ -44,5 +44,6 @@ foreach ($lines as $line) {
         $templine = '';
     }
 }
+*/
 echo "Tables imported successfully";
 
