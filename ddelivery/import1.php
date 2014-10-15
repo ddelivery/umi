@@ -1,5 +1,5 @@
 <?php
-
+/*
 $config = mainConfiguration::getInstance();
 
 // Name of the file
