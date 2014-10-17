@@ -62,9 +62,9 @@ abstract class __ddelivery_custom
         try {
             $IntegratorShop = new Adapter();
             $ddeliveryUI = new DDeliveryUI( $IntegratorShop );
-            echo $ddeliveryUI->render( isset( $_REQUEST ) ? $_REQUEST : array() );
+            $ddeliveryUI->render( isset( $_REQUEST ) ? $_REQUEST : array() );
         } catch (Exception $e) {
-            echo $e;
+            $IntegratorShop->logMessage($e);
         }
         exit;
     }
@@ -81,7 +81,7 @@ abstract class __ddelivery_custom
             $ddeliveryUI = new \DDelivery\DDeliveryUI( $IntegratorShop, true );
             $ddeliveryUI->getPullOrdersStatus();
         } catch (\DDelivery\DDeliveryException $e) {
-            echo $e->getMessage();
+            $IntegratorShop->logMessage($e);
 
         }
         exit;
@@ -123,12 +123,13 @@ abstract class __ddelivery_custom
                 $ddeliveryUI = new DdeliveryUI( $IntegratorShop, true );
 
                 $status = $event->getParam( "new-status-id" );
-                $payment = $CmsOrder->getPaymentStatus();
+                $payment = $CmsOrder->getValue( 'payment_id' );
+
                 //Отправление данных на сервер
                 $ddeliveryUI->onCmsOrderFinish( $sdkOrderId, $CmsOrderId, $status, $payment );
 
             } catch (\DDelivery\DDeliveryException $e) {
-                echo $e->getMessage();
+                $IntegratorShop->logMessage($e);
             }
         }
     }
@@ -138,6 +139,9 @@ abstract class __ddelivery_custom
      */
     public function onModifyStatusValue(iUmiEventPoint $event)
     {
+
+
+
         if ($event->getMode() != 'after') return;
 
         $propName = $event->getParam( 'property' );
@@ -156,18 +160,19 @@ abstract class __ddelivery_custom
                     $CMSOrder_id = $CMSOrder->getId();
                     $sdkOrderId = regedit::getInstance()->getVal( '//modules/ddelivery/orderID_' . $CMSOrder_id . '_orderSDkId' );
 
-                    $order = $ddeliveryUI->initOrder( array( $sdkOrderId ) );
+                    $order = $ddeliveryUI->initOrder( $sdkOrderId);
                     if (empty( $order ))
                         return null;
-                    $order = reset( $order );
+                    //$order = reset( $order );
 
                     $payment = $CMSOrder->getValue( 'payment_id' );
 
                     //Если это нужный статус, то шлем на сервер
-                    $ddeliveryUI->sendOrderToDD( $order, $CMSOrder_id, $payment );
+                    $order->paymentVariant = $payment;
+                    $ddeliveryUI->sendOrderToDD( $order);
                 }
             } catch (\DDelivery\DDeliveryException $e) {
-                echo $e->getMessage();
+                $IntegratorShop->logMessage($e);
             }
         }
     }
@@ -181,6 +186,7 @@ abstract class __ddelivery_custom
     {
 
         if ($event->getMode() == "after") {
+
 
             // static $modifiedCache = array();
             // static $orderStatus = array();
@@ -198,24 +204,22 @@ abstract class __ddelivery_custom
                     //
 
                     $CMSOrder = order::get( $object->getId() );
-                    if ($IntegratorShop->isStatusToSendOrder( $CMSOrder->getOrderStatus() )) {
+                    //if ($IntegratorShop->isStatusToSendOrder( $CMSOrder->getOrderStatus() )) {
+
+
                         $CMSOrder_id = $CMSOrder->getId();
                         $sdkOrderId = regedit::getInstance()->getVal( '//modules/ddelivery/orderID_' . $CMSOrder_id . '_orderSDkId' );
-
-                        $order = $ddeliveryUI->initOrder( array( $sdkOrderId ) );
-                        if (empty( $order ))
-                            return null;
-                        $order = reset( $order );
-
+                        //$order = $ddeliveryUI->initOrder( $sdkOrderId);
                         $payment = $CMSOrder->getValue( 'payment_id' );
-
                         //Если это нужный статус, то шлем на сервер
-                        $ddeliveryUI->sendOrderToDD( $order, $CMSOrder_id, $payment );
-                    }
-
+                        //$order->paymentVariant = $payment;
+                        $ddeliveryUI->onCmsChangeStatus($CMSOrder_id, $CMSOrder->getOrderStatus());
+                        //$ddeliveryUI->sendOrderToDD( $order);
+                    //}
 
                 } catch (\DDelivery\DDeliveryException $e) {
                     echo $e->getMessage();
+                    $IntegratorShop->logMessage($e); // $e->getMessage();
                 }
             } else {
                 return;
@@ -329,7 +333,19 @@ abstract class __ddelivery_custom
      */
     public function test()
     {
-
+        try{
+            $IntegratorShop = new Adapter();
+            $ddeliveryUI = new DDeliveryUI($IntegratorShop);
+            $order = $ddeliveryUI->initOrder(6);
+            $order->paymentVariant = '2';
+            $ddeliveryUI->sendOrderToDD($order);
+        }catch(Exception $e){
+            $IntegratorShop->logMessage($e);
+            echo $e->getMessage();
+            exit;
+        }
+        exit;
+    /*
         $regedit = regedit::getInstance();
         $objects = umiObjectsCollection::getInstance();
         $typesCollection = umiObjectTypesCollection::getInstance();
@@ -368,6 +384,7 @@ abstract class __ddelivery_custom
         //  var_dump($delivery_type_id);
 
         // require_once( 'test.php' );
+    */
     }
 
 

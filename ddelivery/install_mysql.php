@@ -199,7 +199,7 @@ try {
 /**
  * Шаг 2 формируем БД
  */
-/*
+
 $Adapter = new Adapter();
 if ($Adapter->dbdriver == $Adapter::DB_MYSQL) {
     try {
@@ -219,7 +219,7 @@ if ($Adapter->dbdriver == $Adapter::DB_MYSQL) {
         exit;
     }
 }
-*/
+
 if ($Adapter->dbdriver == $Adapter::DB_SQLITE) {
     try {
 //        copy( implode( DIRECTORY_SEPARATOR, array( __DIR__, "DDelivery", 'public_html', "db", 'db.sqlite' ) )

@@ -9,7 +9,6 @@ namespace DDelivery\Order;
 
 use DDelivery\Adapter\DShopAdapter;
 use DDelivery\DDeliveryException;
-use DDelivery\Point\DDeliveryAbstractPoint;
 use DDelivery\DataBase\SQLite;
 
 /**
@@ -28,6 +27,13 @@ class DDeliveryOrder
      * @var int
      */
     public $localId;
+
+    /**
+     * Id компании доставки
+     * @var int
+     */
+    public $companyId;
+
     /**
      * Тип если самовывоз - 1, если курьерка - 2
      * @var int
@@ -50,10 +56,11 @@ class DDeliveryOrder
      * @var int сторона 3 (см)
      */
     public $dimensionSide3 = 0;
+
     /**
-     * @var int вес заказа
+     * @var float вес заказа
      */
-    protected $weight = 0;
+    public $weight = 0;
     
     /**
      * @var int город
@@ -89,7 +96,7 @@ class DDeliveryOrder
     /**
      * @var string фамилия
      */
-    public $secondName;
+    public $secondName = '';
     /**
      * @var string телефон
      */
@@ -99,7 +106,13 @@ class DDeliveryOrder
      * @var string email
      */
     public $toEmail;
-    
+
+
+    /**
+     * @var string индекс
+     */
+    public $toIndex;
+
     /**
      * @var string улица
      */
@@ -169,6 +182,36 @@ class DDeliveryOrder
     public $comment;
 
     /**
+     * @var String - символическое представление города
+     */
+    public $cityName = null;
+
+    /**
+     * @var DDeliveryOrderCache - кеш в контексте заказа
+     */
+    public $orderCache;
+
+    /**
+     * @var DDeliveryOrderCache - кеш в контексте заказа
+     */
+    public $pointID;
+
+    /**
+     *   дополнительное поле 1
+     */
+    public $addField1 = null;
+
+    /**
+     *   дополнительное поле 2
+     */
+    public $addField2 = null;
+
+    /**
+     *   дополнительное поле 3
+     */
+    public $addField3 = null;
+
+    /**
      * @param DDeliveryProduct[] $productList
      * @throws DDeliveryOrderException
      */
@@ -186,7 +229,24 @@ class DDeliveryOrder
         
         // Получаем параметры для товаров в заказе
         $this->getProductParams();
+        $this->orderCache = new DDeliveryOrderCache();
+    }
 
+    public function getCacheValue( $field, $sig ){
+        if( ($this->orderCache->sig == $sig) && ( $this->orderCache->$field != null ) ){
+            return $this->orderCache->$field;
+        }
+        return false;
+    }
+
+    public function setCacheValue( $field, $sig, $value ){
+        if( $this->orderCache->sig == $sig ){
+            $this->orderCache->$field = $value;
+        }else{
+            $this->orderCache = new DDeliveryOrderCache();
+            $this->orderCache->sig = $sig;
+            $this->orderCache->$field = $value;
+        }
     }
 
     /**
@@ -234,6 +294,20 @@ class DDeliveryOrder
         $this->dimensionSide3 = $dimensionSide3;
         $this->productIDs = implode(',', $productIDs);
     }
+
+    public function getJsonOrder(){
+        $json = array();
+        if(!empty($this->productList)){
+            foreach ($this->productList as $product) {
+                $json[] = array('name' => $product->getName(), 'article' =>$product->getSku(),
+                                'count' =>  $product->getQuantity());
+            }
+            return json_encode( $json );
+        }else{
+            throw new DDeliveryOrderException("Корзина пуста");
+        }
+    }
+
     /**
      *
      * Упаковать продукты заказа для сохранения в БД
@@ -244,36 +318,15 @@ class DDeliveryOrder
     {
         return serialize( $this->productList );
     }
-    
-    /**
-     *
-     * Упаковать данные заказа для сохранения в БД
-     * @deprecated
-     * @return array
-     */
-    public function packOrder()
-    {	
-    	$point = $this->getPoint();
-    	$checkSum = md5( $this->goodsDescription );
-    	$pointID = 0;
-    	$pointPacked = '';
-    	
-    	if( !empty( $point ) )
-    	{
-    		$pointPacked = serialize($point);
-            $pointID = $this->point->pointID;
-    	}
-    	
-    	$packedOrder = array( 'type'=>$this->type, 'city' => $this->city, 'amount' => $this->amount, 
-    			              'productIDs' => $this->productIDs, 'ddeliveryID' => $this->ddeliveryID, 
-    			              'products' => serialize( $this->productList ), 'point_id' => $pointID, 
-                              'to_name' => $this->toName, 'firstName' => $this->firstName,
-    	                      'secondName' => $this->secondName, 'to_phone' => $this->toPhone, 'to_street' => $this->toStreet,
-                              'to_house' => $this->toHouse, 'to_flat' => $this->toFlat, 'to_email' => $this->toEmail,
-    						  'point' => $pointPacked, 'checksum' => $checkSum );
-    	
-    	return $packedOrder;
+
+    public function getAmount(){
+        $amount = 0.;
+        foreach($this->productList as $product) {
+            $amount += $product->getPrice() * $product->getQuantity();
+        }
+        return $amount;
     }
+
 
     /**
      * @return int
@@ -283,9 +336,12 @@ class DDeliveryOrder
         return $this->_id;
     }
 
+    public function getToIndex(){
+        return $this->toIndex;
+    }
     
     /**
-     * @param DDeliveryAbstractPoint $point
+     * @param  $point
      */
     public function setPoint( $point )
     {

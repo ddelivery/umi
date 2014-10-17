@@ -133,7 +133,7 @@ Map = (function () {
                     var geoObjects = target.properties.get('geoObjects');
                     if (geoObjects) { // Клик по кластеру
                         var bound = [
-                            [99, 99],
+                            [500, 500],
                             [0, 0]
                         ];
                         for (var geoKey in geoObjects) {
@@ -148,7 +148,6 @@ Map = (function () {
                             if (bound[0][1] > coord[1])
                                 bound[0][1] = coord[1];
                         }
-
                         // Вычисляем центр и зум которые нам нужны, отступ 20 - первое число которое указал и оно нормально работает
                         //var centerAndZoom = ymaps.util.bounds.getCenterAndZoom(bound, yamap.container.getSize(), ymaps.projection.wgs84Mercator, {margin:20});
 
@@ -220,6 +219,7 @@ Map = (function () {
                 if (filter.has_fitting_room && !point.has_fitting_room) {
                     return false;
                 }
+
                 if (filter.hideCompany.indexOf(point.company_id) != -1) {
                     return false;
                 }
@@ -229,6 +229,7 @@ Map = (function () {
             for (var pointKey in points) {
                 point = points[pointKey];
                 display = isDisplayPoint(point);
+
                 if (point.display != display) {
                     if (display) { // Скрыта, пказать
                         pointsAdd.push(point.placemark);
@@ -312,7 +313,7 @@ Map = (function () {
             $('.delivery-type__drop ul').hide();
             $('.map-popup .delivery-type__drop p.loader_center').show();
 
-            DDeliveryIframe.ajaxData({action: 'mapDataOnly', city_id: cityId}, function (data) {
+            DDeliveryIframe.ajaxData({action: 'mapDataOnly', city_id: cityId, city_alias:cityFullName}, function (data) {
                 Map.renderData(data);
             });
 
@@ -341,10 +342,10 @@ Map = (function () {
                     var check = $(this).hasClass('border');
                     if (check) {
                         $(this).removeClass('border').addClass('hasinfo');
-                        filter.hideCompany.push(parseInt($(this).data('id')));
+                        filter.hideCompany.push($(this).data('id'));
                     } else {
                         $(this).addClass('border').removeClass('hasinfo');
-                        filter.hideCompany.splice(filter.hideCompany.indexOf(parseInt($(this).data('id'))), 1);
+                        filter.hideCompany.splice(filter.hideCompany.indexOf($(this).data('id')), 1);
                     }
                     Map.filterPoints();
                 }
@@ -411,7 +412,7 @@ Map = (function () {
                 point.name = point.company + ' #' + point._id;
             }
             $('.map-popup__info__title h2').html(point.name);
-            $('.map-popup__info__table .rub').html('<img src="' + DDeliveryIframe.staticUrl + '/img/ajax_loader_min.gif"/> ');
+            $('.map-popup__info__table .rub').html('<img src="' + DDeliveryIframe.staticUrl + 'img/ajax_loader_min.gif"/> ');
             var payType = [];
             if (point.is_cash) {
                 payType.push('Наличными');
@@ -451,7 +452,7 @@ Map = (function () {
 
                         $('.schedule', more).html(data.point.schedule.replace(/\n/g, "<br>"));
 
-                        var description = (data.point.description_out + '<br/>' + data.point.description_out).replace(/\n/g, '<br/>');
+                        var description = (data.point.description_in + '<br/>' + data.point.description_out).replace(/\n/g, '<br/>');
                         $('.more', more).html(description);
 
                         if(!data.point.metro) {

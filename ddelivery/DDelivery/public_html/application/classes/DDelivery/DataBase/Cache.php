@@ -9,7 +9,9 @@
 namespace DDelivery\DataBase;
 
 use DDelivery\Adapter\DShopAdapter;
-use PDO;
+use DDelivery\DB\ConnectInterface;
+use DDelivery\DB\ConstPDO as PDO;
+
 /**
  *
 * Class Cache
@@ -18,7 +20,7 @@ use PDO;
 class Cache {
 
     /**
-     * @var PDO
+     * @var ConnectInterface
      */
     private $pdo;
     /**
@@ -31,32 +33,92 @@ class Cache {
     private $prefix;
 
 
-    public function __construct(PDO $pdo, $prefix = '')
+    /**
+     * @param $pdo
+     * @param string $prefix
+     * @throws \DDelivery\DDeliveryException
+     */
+    public function __construct($pdo, $prefix = '')
     {
         $this->pdo = $pdo;
         $this->prefix = $prefix;
-        if($this->pdo->getAttribute(PDO::ATTR_DRIVER_NAME) == 'sqlite') {
-            $this->pdoType = DShopAdapter::DB_SQLITE;
-        }else{
-            $this->pdoType = DShopAdapter::DB_MYSQL;
-        }
+        $this->pdoType = \DDelivery\DB\Utils::getDBType($pdo);
     }
 
     public function createTable()
     {
         if($this->pdoType == DShopAdapter::DB_MYSQL) {
             $query = 'CREATE TABLE `'.$this->prefix.'cache` (
-                    `id`  int NOT NULL AUTO_INCREMENT ,
-                    `sig`  varchar(255) NULL ,
-                    `data_container`  text NULL ,
-                    `expired`  datetime NULL ,
-                    PRIMARY KEY (`id`)
-                )';
-            $sth = $this->pdo->prepare( $query );
-            $sth->execute();
+                      `id`  int NOT NULL,
+                      `data_container`  MEDIUMTEXT NULL ,
+                      `expired`  datetime NULL,
+                      `filter_company` TEXT NULL,
+                      PRIMARY KEY (`id`),
+                      INDEX `dd_cache` (`id`)
+                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8';
         }else{
-            // ;)
+            $query = 'CREATE TABLE `'.$this->prefix.'cache` (
+                      id INTEGER PRIMARY KEY,
+                      data_container TEXT,
+                      expired  TEXT,
+                      filter_company TEXT
+                    )';
         }
+        $sth = $this->pdo->prepare( $query );
+
+        $sth->execute();
+    }
+
+
+    public function getCacheDataByCityID( $cityID ){
+        $query = 'SELECT data_container, expired, filter_company
+                  FROM '.$this->prefix.'cache
+                  WHERE id = :sig';
+        $sth = $this->pdo->prepare( $query );
+        $sth->bindParam( ':sig', $cityID );
+        $sth->execute();
+        $result = $sth->fetchAll(PDO::FETCH_OBJ);
+        return $result;
+    }
+
+    public function setCacheData( $cityID, $data, $expired, $filter_company ){
+
+        if($this->pdoType == DShopAdapter::DB_SQLITE) {
+            $query = 'INSERT INTO '.$this->prefix.'cache (id, data_container, expired, filter_company) VALUES
+                          (:sig, :data_container, datetime("now", "+' . $expired . ' minutes"), :filter_company)';
+        }elseif($this->pdoType == DShopAdapter::DB_MYSQL) {
+            $query = 'INSERT INTO '.$this->prefix.'cache (id, data_container, expired, filter_company) VALUES
+                          (:sig, :data_container, ( NOW() + INTERVAL ' . $expired . ' MINUTE ), :filter_company )';
+        }
+        $sth = $this->pdo->prepare( $query );
+        $sth->bindParam( ':sig', $cityID );
+        $sth->bindParam( ':data_container', $data );
+        $sth->bindParam( ':filter_company', $filter_company );
+        $result = $sth->execute();
+        return $result;
+    }
+
+    public function deleteItem( $cityID ){
+        $query = 'DELETE FROM '.$this->prefix.'cache WHERE id=:sig';
+        $sth = $this->pdo->prepare( $query );
+        $sth->bindParam( ':sig', $cityID );
+        if( $sth->execute() ){
+            $result = true;
+        }else{
+            $result = false;
+        }
+        return $result;
+    }
+
+    /**
+     * Удалить все
+     * @return bool
+     */
+    public function removeAll(){
+        $query = 'DELETE FROM '.$this->prefix.'cache';
+        $sth = $this->pdo->prepare( $query );
+        $result = $sth->execute();
+        return $result;
     }
 
     /**
@@ -199,7 +261,6 @@ class Cache {
      */
     public function removeExpired()
     {
-        $this->pdo->beginTransaction();
         if($this->pdoType == DShopAdapter::DB_SQLITE) {
             $query = 'DELETE FROM cache WHERE expired < datetime("now")';
         }elseif($this->pdoType == DShopAdapter::DB_MYSQL) {
@@ -207,7 +268,6 @@ class Cache {
         }
         $sth = $this->pdo->prepare( $query );
         $sth->execute();
-        $this->pdo->commit();
         $result = $sth->fetchAll(PDO::FETCH_OBJ);
         return $result;
     }
@@ -218,7 +278,6 @@ class Cache {
      */
     public function selectExpired()
     {
-        $this->pdo->beginTransaction();
         if($this->pdoType == DShopAdapter::DB_SQLITE) {
             $query = 'SELECT expired,  datetime("now") AS expired2  FROM
                   cache WHERE expired < datetime("now")';
@@ -229,26 +288,12 @@ class Cache {
         }
         $sth = $this->pdo->prepare( $query );
         $sth->execute();
-        $this->pdo->commit();
         $result = $sth->fetchAll(PDO::FETCH_OBJ);
 
         return $result;
     }
 
-    /**
-     * Удалить все
-     * @return bool
-     */
-    public function removeAll( )
-    {
-        $this->pdo->beginTransaction();
-        $query = 'DELETE FROM cache';
 
-        $sth = $this->pdo->prepare( $query );
-        $result = $sth->execute();
-        $this->pdo->commit();
-        return $result;
-    }
 
     /**
      *
@@ -260,7 +305,6 @@ class Cache {
      */
     public function remove( $sig )
     {
-        $this->pdo->beginTransaction();
         $query = 'DELETE FROM cache WHERE sig = ":sig"';
         $sth = $this->pdo->prepare( $query );
         $sth->bindParam( ':sig', $sig );
@@ -272,7 +316,6 @@ class Cache {
         {
             $result = false;
         }
-        $this->pdo->commit();
         return $result;
     }
 

@@ -33,7 +33,7 @@ use DDelivery\Adapter\DShopAdapter;
                 <?if($requiredFieldMask & DShopAdapter::FIELD_EDIT_FIRST_NAME || ($requiredFieldMask & DShopAdapter::FIELD_REQUIRED_FIRST_NAME && !$order->firstName ) ):?>
                     <div class="row clearfix">
                         <div class="row__title">
-                            <label for="first_name">Имя</label>
+                            <label for="first_name">ФИО</label>
                         </div>
                         <div class="row__inp">
                             <input type="text" title="Иван" id="first_name" name="first_name" value="<?=htmlspecialchars(trim($order->firstName))?>" <?if($requiredFieldMask & DShopAdapter::FIELD_REQUIRED_FIRST_NAME):?>req="req"<?endif;?>/>
@@ -56,6 +56,21 @@ use DDelivery\Adapter\DShopAdapter;
                         </div>
                     </div>
                 <?endif;?>
+
+                <?if($requiredFieldMask & DShopAdapter::FIELD_EDIT_INDEX|| ($requiredFieldMask & DShopAdapter::FIELD_EDIT_INDEX && !$order->toIndex ) ):?>
+                    <div class="row clearfix">
+                        <div class="row__title">
+                            <label for="address">Индекс</label>
+                        </div>
+                        <div class="row__inp">
+                            <input type="text" title="Индекс" id="index" name="index" value="<?=htmlspecialchars(trim($order->toIndex))?>" <?if($requiredFieldMask & DShopAdapter::FIELD_REQUIRED_INDEX):?>req="req"<?endif;?>/>
+                            <div class="error-box">
+                                <i>&nbsp;</i> Поле обязательное для заполнения
+                            </div>
+                        </div>
+                    </div>
+                <?endif;?>
+
                 <?if($requiredFieldMask & DShopAdapter::FIELD_EDIT_ADDRESS || ($requiredFieldMask & DShopAdapter::FIELD_REQUIRED_ADDRESS && !$order->getToStreet() ) ):?>
                     <div class="row clearfix">
                         <div class="row__title">
@@ -92,6 +107,21 @@ use DDelivery\Adapter\DShopAdapter;
                         </div>
                     </div>
                 <?endif;?>
+
+                <?if($requiredFieldMask & DShopAdapter::FIELD_EDIT_EMAIL || ($requiredFieldMask & DShopAdapter::FIELD_REQUIRED_EMAIL ) ):?>
+                    <div class="row clearfix">
+                        <div class="row__title">
+                            <label for="email">E-mail:</label>
+                        </div>
+                        <div class="row__inp">
+                            <input type="text" title="@email.ru" id="email" name="email" value="<?=htmlspecialchars(trim($order->toEmail))?>" <?if($requiredFieldMask & DShopAdapter::FIELD_REQUIRED_EMAIL):?>req="req"<?endif;?>/>
+                            <div class="error-box email">
+                                <i>&nbsp;</i> Не верный формат email
+                            </div>
+                        </div>
+                    </div>
+                <?endif;?>
+
                 <div class="row clearfix">
                     <div class="row__title">
                         <label for="comment">Комментарий</label>

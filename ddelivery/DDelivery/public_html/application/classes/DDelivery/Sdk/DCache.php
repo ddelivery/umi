@@ -8,6 +8,7 @@
 
 namespace DDelivery\Sdk;
 use DDelivery\DataBase\Cache;
+use DDelivery\DB\ConnectInterface;
 use DDelivery\DDeliveryException;
 use DDelivery\DDeliveryUI;
 
@@ -18,11 +19,6 @@ use DDelivery\DDeliveryUI;
  */
 class DCache
 {
-    /**
-     * Контекст объекта в котором происходит кэширование
-     * @var object
-     */
-    public $context;
 
     /**
      * Срок хранения кэша
@@ -49,19 +45,52 @@ class DCache
     private $pdoTablePrefix;
 
     /**
-     * @param DDeliveryUI $context
      * @param int $expired
      * @param bool $enabled
-     * @param \PDO $PDO
+     * @param ConnectInterface $PDO
      * @param string $pdoTablePrefix
      */
-    public function __construct( DDeliveryUI $context, $expired, $enabled = true, \PDO $PDO, $pdoTablePrefix = '' )
+    public function __construct( $expired, $PDO, $enabled = true, $pdoTablePrefix = '' )
     {
         $this->pdo = $PDO;
         $this->pdoTablePrefix = $pdoTablePrefix;
-        $this->context = $context;
         $this->expired = $expired;
-        $this->enabled = $context;
+        $this->enabled = $enabled;
+
+        $cache = new Cache($this->pdo, $this->pdoTablePrefix);
+        $this->cache = $cache;
+    }
+
+    public function get($cityID, $filter_company = ''){
+        $cityID = (int) $cityID;
+        $data = $this->cache->getCacheDataByCityID($cityID);
+
+        if( count( $data ) ){
+            $datetime1 = new \DateTime();
+            $datetime2 = new \DateTime( $data[0]->expired );
+
+            if( $datetime1 > $datetime2 || ( (strlen($filter_company) > 0) && ($filter_company!= $data[0]->filter_company))){
+                $this->cache->deleteItem($cityID);
+                $result = array();
+            }else{
+                $result = unserialize( $data[0]->data_container );
+            }
+        }else{
+            $result = array();
+        }
+        return $result;
+    }
+
+    public function set($cityID, $content, $filter_company){
+        $cityID = (int) $cityID;
+        $this->cache->setCacheData( $cityID, serialize($content), $this->expired, $filter_company );
+    }
+
+    /**
+     * Очистить БД с кэшем
+     */
+    public function clean(){
+        return $this->cache->removeAll();
     }
 
     /**
@@ -144,13 +173,6 @@ class DCache
         return $id;
     }
 
-    /**
-     * Очистить БД с кэшем
-     */
-    public function clean()
-    {
-        return $this->getCacheObject()->removeAll();
-    }
 
     /**
      * Очистить устаревшие записи

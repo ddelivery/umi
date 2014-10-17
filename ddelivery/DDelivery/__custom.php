@@ -96,7 +96,7 @@ abstract class __ddelivery_custom
 
 // $payment – идентификатор способа оплаты в пределах CMS
             } catch (\DDelivery\DDeliveryException $e) {
-                echo $e->getMessage();
+                $IntegratorShop->logMessage($e);
             }
 
         }
@@ -127,7 +127,7 @@ abstract class __ddelivery_custom
                     $CMSOrder_id = $CMSOrder->getId();
                     $sdkOrderId = regedit::getInstance()->getVal('//modules/ddelivery/orderID_' . $CMSOrder_id . '_orderSDkId');
 
-                    $order = $ddeliveryUI->initOrder(array($sdkOrderId));
+                    $order = $ddeliveryUI->initOrder($sdkOrderId);
                     if (empty($order))
                         return null;
                     $order = reset($order);
@@ -136,12 +136,10 @@ abstract class __ddelivery_custom
 
 
                     //Если это нужный статус, то шлем на сервер
-                    $ddeliveryUI->sendOrderToDD($order, $CMSOrder_id, $payment);
+                    $ddeliveryUI->sendOrderToDD($order);
                 }
-
-
             } catch (\DDelivery\DDeliveryException $e) {
-                echo $e->getMessage();
+                $IntegratorShop->logMessage($e);
             }
 
         }
@@ -174,7 +172,7 @@ abstract class __ddelivery_custom
                         $CMSOrder_id = $CMSOrder->getId();
                         $sdkOrderId = regedit::getInstance()->getVal('//modules/ddelivery/orderID_' . $CMSOrder_id . '_orderSDkId');
 
-                        $order = $ddeliveryUI->initOrder(array($sdkOrderId));
+                        $order = $ddeliveryUI->initOrder($sdkOrderId);
                         if (empty($order))
                             return null;
                         $order = reset($order);
@@ -233,8 +231,8 @@ abstract class __ddelivery_custom
         $data['getIntervalsByPoint'] = $IntegratorShop->getIntervalsByPoint();
         $data['filterCompanyPointCourier'] = $IntegratorShop->filterCompanyPointCourier();
         $data['filterCompanyPointSelf'] = $IntegratorShop->filterCompanyPointSelf();
-        $data['filterPointByPaymentTypeCourier-доделать - не понятно где настраивать'] = $IntegratorShop->filterPointByPaymentTypeCourier();
-        $data['filterPointByPaymentTypeSelf-доделать - не понятно где настраивать'] = $IntegratorShop->filterPointByPaymentTypeCourier();
+        $data['filterPointByPaymentTypeCourier-доделать - не понятно где настраивать'] = $IntegratorShop->filterPointByPaymentTypeCourier($ddeliveryUI->getOrder());
+        $data['filterPointByPaymentTypeSelf-доделать - не понятно где настраивать'] = $IntegratorShop->filterPointByPaymentTypeCourier($ddeliveryUI->getOrder());
         $data['isPayPickup'] = $IntegratorShop->isPayPickup();
         $data['aroundPriceStep'] = $IntegratorShop->aroundPriceStep();
         $data['aroundPriceType'] = $IntegratorShop->aroundPriceType();

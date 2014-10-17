@@ -49,7 +49,7 @@ var DDeliveryIframe = (function () {
 
             }, 'json').fail(function(responce, errorType) {
                 if(typeof(console.log) != 'undefined')
-                    console.log(responce.responseText);
+
                 $('#ddelivery_loader .loader').hide();
                 $('#ddelivery_loader .load_error').show();
             });
@@ -99,7 +99,8 @@ var DDeliveryIframe = (function () {
             window.parent.postMessage(dataJSON, '*');
         },
         close: function(){
-            DDeliveryIframe.postMessage('close', {});
+            var th = this;
+            DDeliveryIframe.postMessage('close', {orderId:th.orderId});
         }
     }
 })();

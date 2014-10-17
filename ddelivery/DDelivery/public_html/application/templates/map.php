@@ -2,7 +2,6 @@
 /**
  * @var \DDelivery\DDeliveryUI $this
  * @var array[] $cityList
- * @var DDelivery\Point\DDeliveryPointSelf[] $selfCompanyList
  */
 
 ?>
@@ -20,7 +19,7 @@
         <p>Я хочу</p>
 
         <div class="delivery-type">
-            <?require(__DIR__.DIRECTORY_SEPARATOR.'typeHelper.php')?>
+            <? require(__DIR__ . DIRECTORY_SEPARATOR . 'typeHelper.php') ?>
         </div>
         <!--delivery-type end-->
 
@@ -32,7 +31,7 @@
             ?>
             <input type="hidden" name="ddelivery_city" value="<?=$cityData['_id']?>"/>
             <div class="delivery-place__title">
-                <input type="text" title="<?=$cityData['display_name']?>"/>
+                <input type="text" title="<?=htmlspecialchars($cityData['display_name'])?>"/>
                 <span><i>&nbsp;</i></span>
             </div>
             <div class="delivery-place__drop">
@@ -53,7 +52,7 @@
     <div class="map-popup__main">
         <div class="map-popup__main__overlay">&nbsp;</div>
         <div class="map">
-            <div class="map-canvas" style="width: 1000px; height: 568px"></div>
+            <div class="map-canvas"></div>
             <div class="map__search clearfix">
                 <input type="text" placeholder="Адрес или объект"/>
                 <input type="submit" value="ПОИСК"/>

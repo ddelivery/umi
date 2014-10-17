@@ -125,7 +125,7 @@ class Adapter extends \DDelivery\Adapter\PluginFilters
             $quantity = $item->getAmount();
             $name = $item->getName();
 
-            $products[] = new DDeliveryProduct($id, $width, $height, $length, $weight, $price, $quantity, $name);
+            $products[] = new DDeliveryProduct($id, $width, $height, $length, $weight, $price, $quantity, $name,$id);
         }
 
         return $products;
@@ -220,10 +220,11 @@ class Adapter extends \DDelivery\Adapter\PluginFilters
      * @param bool $customPoint Если true, то заказ обрабатывается магазином
      * @return void
      */
-    public function onFinishChange($orderId, \DDelivery\Order\DDeliveryOrder $order, $customPoint)
+    public function onFinishChange($order)
     {
-        $ini = cmsController::getInstance()->getModule("emarket");
+       // $ini = cmsController::getInstance()->getModule("emarket");
         //Запоминаем заказ в любом случае
+        /*
         if ($customPoint) {
             //Заказ обрабатывается магазином
             $this->regedit->setVal('//modules/ddelivery/orderID_' . Shop::getBasketOrder()->getId() . '_orderSDkId', $orderId);
@@ -231,6 +232,8 @@ class Adapter extends \DDelivery\Adapter\PluginFilters
             $this->regedit->setVal('//modules/ddelivery/orderID_' . Shop::getBasketOrder()->getId() . '_orderSDkId', $orderId);
             // Запомни id заказа
         }
+        */
+        $this->regedit->setVal('//modules/ddelivery/orderID_' . Shop::getBasketOrder()->getId() . '_orderSDkId', $order->localId);
     }
 
     /**
@@ -255,7 +258,7 @@ class Adapter extends \DDelivery\Adapter\PluginFilters
         foreach ($firms as $k => $f) {
             $in_use = $this->regedit->getVal('//modules/ddelivery/ddc.' . $k);
             $type = $this->regedit->getVal('//modules/ddelivery/ddctype.' . $k);
-            if ($in_use == 0 or $type == 2) {
+            if ($in_use == 1 or $type == 2) {
                 $company[] = $k;
             }
         }
@@ -278,7 +281,7 @@ class Adapter extends \DDelivery\Adapter\PluginFilters
             $in_use = $this->regedit->getVal('//modules/ddelivery/ddc.' . $k);
             $type = $this->regedit->getVal('//modules/ddelivery/ddctype.' . $k);
 
-            if ($in_use == 0 or $type == 3) {
+            if ($in_use == 1 or $type == 3) {
                 $company[] = $k;
             }
         }
@@ -289,7 +292,7 @@ class Adapter extends \DDelivery\Adapter\PluginFilters
      * Возвращаем способ оплаты константой PluginFilters::PAYMENT_, предоплата или оплата на месте. Курьер
      * @return int
      */
-    public function filterPointByPaymentTypeCourier()
+    public function filterPointByPaymentTypeCourier($order)
     {
         return self::PAYMENT_POST_PAYMENT;
         // выбираем один из 3 вариантов(см документацию или комменты к констатам)
@@ -303,7 +306,7 @@ class Adapter extends \DDelivery\Adapter\PluginFilters
      * Возвращаем способ оплаты константой PluginFilters::PAYMENT_, предоплата или оплата на месте. Самовывоз
      * @return int
      */
-    public function filterPointByPaymentTypeSelf()
+    public function filterPointByPaymentTypeSelf($order)
     {
         return self::PAYMENT_POST_PAYMENT;
         // выбираем один из 3 вариантов(см документацию или комменты к констатам)
@@ -494,22 +497,17 @@ class Adapter extends \DDelivery\Adapter\PluginFilters
     public function getClientCityId()
     {
 
-        /**
-         * Если существует это значение в сессии, то просто возвращаем его
-         */
         if (isset($_SESSION['ddeliverys']["bid"])) {
             return $_SESSION['ddeliverys']["bid"];
         }
+        /*
 
 
-        /**
-         * Если существует это значение, то это форма в 1 клик
-         */
         if (isset($_SESSION['ddeliverys']['delivery-address'])) {
             $address_id = $_SESSION['ddeliverys']['delivery-address'];
-            /**
-             * Если значений new то просто переносим новые значения в поля SDK иначе у нас есть id существующего адреса
-             */
+
+             //Если значений new то просто переносим новые значения в поля SDK иначе у нас есть id существующего адреса
+
             if ($address_id == 'new') {
                 $cityName = (isset($_SESSION['ddeliverys']['CustomerId']['new']['city'])) ? $_SESSION['ddeliverys']['CustomerId']['new']['city'] : '';
                 $cityRegion = (isset($_SESSION['ddeliverys']['CustomerId']['new']['region'])) ? $_SESSION['ddeliverys']['CustomerId']['new']['region'] : '';
@@ -518,16 +516,13 @@ class Adapter extends \DDelivery\Adapter\PluginFilters
                 $cityName = $address->getValue('city');
                 $cityRegion = $address->getValue('Region');
             }
-        } /**
-         *  Это мастер форм
-         */
-        else {
+        } else {
             $order = Shop::getBasketOrder(false);
             $address_id = $order->getValue('delivery_address');
 
-            /**
-             * Если адреса не существует то возвращаем родительский метод
-             */
+
+            //Если адреса не существует то возвращаем родительский метод
+
             if (is_null($address_id)) {
                 return parent::getClientCityId();
             }
@@ -571,7 +566,8 @@ class Adapter extends \DDelivery\Adapter\PluginFilters
         } else {
             return parent::getClientCityId();
         }
-
+        */
+        return parent::getClientCityId();
     }
 
     /**
@@ -583,6 +579,7 @@ class Adapter extends \DDelivery\Adapter\PluginFilters
      */
     public function isStatusToSendOrder($cmsStatus)
     {
+
         if ($cmsStatus == $this->regedit->getVal('//modules/ddelivery/dd.send_status')) {
             return true;
         } else {
@@ -597,21 +594,28 @@ class Adapter extends \DDelivery\Adapter\PluginFilters
      */
     public function getDbConfig()
     {
-        if ($this->dbdriver === self::DB_SQLITE) {
-            return array(
-                'type' => self::DB_SQLITE,
-                'dbPath' => $this->getPathByDB(),
-                'prefix' => '',
-            );
-        }
 
         if ($this->dbdriver === self::DB_MYSQL) {
+            return array(
+                'pdo' => new \PDO('mysql:host=' . $this->config->get('connections', 'core.host') . ';dbname=' . $this->config->get('connections', 'core.dbname'), $this->config->get('connections', 'core.login'), $this->config->get('connections', 'core.password'), array(\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")),
+                'prefix' => 'ddelivery_',
+            );
+            /*
             return array(
                 'type' => self::DB_MYSQL, //self::DB_SQLITE, //self::DB_MYSQL,
                 'dsn' => 'mysql:host=' . $this->config->get('connections', 'core.host') . ';dbname=' . $this->config->get('connections', 'core.dbname'), //'mysql:host=localhost;dbname=ddelivery',
                 'user' => $this->config->get('connections', 'core.login'), //root',
                 'pass' => $this->config->get('connections', 'core.password'),
                 'prefix' => 'ddelivery_',
+            );
+            */
+        }
+
+        if ($this->dbdriver === self::DB_SQLITE) {
+            return array(
+                'type' => self::DB_SQLITE,
+                'dbPath' => $this->getPathByDB(),
+                'prefix' => '',
             );
         }
     }

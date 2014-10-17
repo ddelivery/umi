@@ -1,4 +1,6 @@
 <?php
+
+
 use Adapter;
 use DDelivery\DDeliveryUI;
 
@@ -8,12 +10,14 @@ error_reporting(E_ALL);
     try{
         $IntegratorShop = new Adapter();
         $ddeliveryUI = new DDeliveryUI($IntegratorShop);
-
+        $order = $ddeliveryUI->initOrder(6);
+        $ddeliveryUI->sendOrderToDD($order);
     }catch(Exception $e){
-        echo $e;
+        $IntegratorShop->logMessage($e);
+        echo $e->getMessage();
         exit;
     }
-
+    exit();
     $data['getApiKey'] = $IntegratorShop->getApiKey();
     $data['isTestMode'] = $IntegratorShop->isTestMode();
     $data['getPathByDB'] = $IntegratorShop->getPathByDB();
