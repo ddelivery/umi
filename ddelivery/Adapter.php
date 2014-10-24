@@ -9,7 +9,10 @@ use DDelivery\DDeliveryUI;
 require_once(implode(DIRECTORY_SEPARATOR, array('classes', 'modules', 'ddelivery', 'DDelivery', 'public_html', 'application', 'bootstrap.php')));
 require_once('Shop.php');
 
-
+/**
+ * Class Adapter
+ * Версия модуля 2.0
+ */
 class Adapter extends \DDelivery\Adapter\PluginFilters
 {
 

@@ -76,10 +76,16 @@ abstract class __ddelivery_custom
      */
     public function getStatusesFromDD()
     {
+        $IntegratorShop = new Adapter();
         try {
-            $IntegratorShop = new Adapter();
+
             $ddeliveryUI = new \DDelivery\DDeliveryUI( $IntegratorShop, true );
-            $ddeliveryUI->getPullOrdersStatus();
+            $orders = $ddeliveryUI->getNotFinishedOrders();
+            if( count($orders) > 0 ){
+                foreach($orders as $item){
+                    print_r($ddeliveryUI->changeOrderStatus($item));
+                }
+            }
         } catch (\DDelivery\DDeliveryException $e) {
             $IntegratorShop->logMessage($e);
 
