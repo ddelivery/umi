@@ -25,46 +25,96 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+<<<<<<< HEAD
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="108">
               <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
               <folding />
+=======
+      <file leaf-file-name="__custom.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ddelivery/__custom.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-38.666668" vertical-offset="2754" max-vertical-offset="7164">
+              <caret line="211" column="0" selection-start-line="211" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
+              <folding>
+                <marker date="1413470464046" expanded="true" signature="8887:8934" placeholder="SELECT DISTI..prefix_ps_dd_cities..." />
+                <marker date="1413470464046" expanded="true" signature="9226:9405" placeholder="SELECT type,.._prefixps_dd_cities WHERE..." />
+                <marker date="1413470464046" expanded="true" signature="10409:10501" placeholder="SELECT DISTI.._prefixps_dd_cities WHERE..." />
+              </folding>
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="Adapter.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ddelivery/Adapter.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.34494773" vertical-offset="0" max-vertical-offset="11826">
               <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+=======
+      <file leaf-file-name="Adapter.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ddelivery/Adapter.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1985" max-vertical-offset="11772">
+              <caret line="123" column="16" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="16" />
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="events.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ddelivery/events.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-1.3333334" vertical-offset="0" max-vertical-offset="198">
               <caret line="2" column="66" selection-start-line="2" selection-start-column="66" selection-end-line="2" selection-end-column="66" />
+=======
+      <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ddelivery/test.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="1044">
+              <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="18" selection-end-column="5" />
+              <folding>
+                <element signature="e#8#20#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="permissions.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ddelivery/permissions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="180">
+              <caret line="2" column="58" selection-start-line="2" selection-start-column="58" selection-end-line="2" selection-end-column="58" />
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="__custom.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ddelivery/DDelivery/__custom.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-69.62963" vertical-offset="424" max-vertical-offset="5472">
               <caret line="129" column="52" selection-start-line="129" selection-start-column="43" selection-end-line="129" selection-end-column="52" />
+=======
+      <file leaf-file-name="DDeliveryUI.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ddelivery/DDelivery/public_html/application/classes/DDelivery/DDeliveryUI.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.666667" vertical-offset="22050" max-vertical-offset="34488">
+              <caret line="1248" column="77" selection-start-line="1248" selection-start-column="77" selection-end-line="1248" selection-end-column="77" />
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="__custom.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ddelivery/__custom.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -75,10 +125,19 @@
                 <marker date="1414140554437" expanded="true" signature="9416:9595" placeholder="SELECT type,.._prefixps_dd_cities WHERE..." />
                 <marker date="1414140554437" expanded="true" signature="10599:10691" placeholder="SELECT DISTI.._prefixps_dd_cities WHERE..." />
               </folding>
+=======
+      <file leaf-file-name="dd.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ddelivery/tmp/assets/dd.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.30461538" vertical-offset="0" max-vertical-offset="2286">
+              <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+              <folding />
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
@@ -102,15 +161,51 @@
                 <marker date="1414140357325" expanded="true" signature="9418:9597" placeholder="SELECT type,.._prefixps_dd_cities WHERE..." />
                 <marker date="1414140357325" expanded="true" signature="10601:10693" placeholder="SELECT DISTI.._prefixps_dd_cities WHERE..." />
               </folding>
+=======
+      <file leaf-file-name="dd.js" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/temp/dd.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2286">
+              <caret line="16" column="59" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="cc.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ddelivery/tmp/assets/cc.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2178" max-vertical-offset="2286">
+              <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DDeliveryOrder.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ddelivery/DDelivery/public_html/application/classes/DDelivery/Order/DDeliveryOrder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2388" max-vertical-offset="9432">
+              <caret line="160" column="26" selection-start-line="160" selection-start-column="12" selection-end-line="160" selection-end-column="26" />
+              <folding />
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
       <file leaf-file-name="DDeliveryUI.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ddelivery/DDelivery/public_html/application/classes/DDelivery/DDeliveryUI.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-3.245614" vertical-offset="4207" max-vertical-offset="34488">
               <caret line="254" column="24" selection-start-line="254" selection-start-column="24" selection-end-line="254" selection-end-column="24" />
+=======
+      <file leaf-file-name="DShopAdapter.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ddelivery/DDelivery/public_html/application/classes/DDelivery/Adapter/DShopAdapter.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2578" max-vertical-offset="12384">
+              <caret line="160" column="39" selection-start-line="160" selection-start-column="39" selection-end-line="160" selection-end-column="39" />
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
               <folding />
             </state>
           </provider>
@@ -136,14 +231,22 @@
         <option value="$PROJECT_DIR$/ddelivery/DDelivery/__custom.php" />
         <option value="$PROJECT_DIR$/ddelivery/permissions.php" />
         <option value="$PROJECT_DIR$/ddelivery/test.php" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/ddelivery/__custom.php" />
+        <option value="$PROJECT_DIR$/ddelivery/Adapter.php" />
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
         <option value="$PROJECT_DIR$/ddelivery/tmp/assets/cc.php" />
         <option value="$PROJECT_DIR$/ddelivery/tmp/assets/dd.js" />
         <option value="$PROJECT_DIR$/ddelivery/DDelivery/public_html/application/classes/DDelivery/DDeliveryUI.php" />
         <option value="$USER_HOME$/temp/dd.js" />
+<<<<<<< HEAD
         <option value="$USER_HOME$/temp/panel.php" />
         <option value="$USER_HOME$/temp/__custom.php" />
         <option value="$PROJECT_DIR$/ddelivery/__custom.php" />
         <option value="$PROJECT_DIR$/ddelivery/Adapter.php" />
+=======
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
       </list>
     </option>
   </component>
@@ -180,7 +283,10 @@
       <sortByType />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scope" />
+=======
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -227,6 +333,26 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
+=======
+              <option name="myItemId" value="icons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="umi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="umi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ddelivery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="DDelivery" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -253,12 +379,122 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="umi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="umi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ddelivery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DDelivery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public_html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="umi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="umi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ddelivery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DDelivery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public_html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
+              <option name="myItemId" value="DDelivery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="umi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="umi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ddelivery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DDelivery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public_html" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+<<<<<<< HEAD
+          </PATH>
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$USER_HOME$/temp/__custom.php" />
+=======
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DDelivery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Adapter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="/var/www/html/devsite" />
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
     <property name="options.lastSelected" value="web.server" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -286,6 +522,12 @@
       <BehatRunner />
       <method />
     </configuration>
+<<<<<<< HEAD
+=======
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="a069e686-0ae7-47cd-beff-233d5323f98c" server_name="umi">
+      <method />
+    </configuration>
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -294,9 +536,12 @@
       <envs />
       <method />
     </configuration>
+<<<<<<< HEAD
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="a069e686-0ae7-47cd-beff-233d5323f98c" server_name="umi">
       <method />
     </configuration>
+=======
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -316,14 +561,22 @@
     <frame x="1505" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32916668" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.265625" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15644002" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -337,6 +590,21 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19955777" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32916668" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -360,10 +628,26 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/ddelivery/install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="4320">
+          <caret line="212" column="34" selection-start-line="212" selection-start-column="22" selection-end-line="212" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
     <entry file="file://$PROJECT_DIR$/ddelivery/test.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="1044">
           <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="18" selection-end-column="5" />
+<<<<<<< HEAD
+=======
+          <folding>
+            <element signature="e#8#20#0#PHP" expanded="true" />
+          </folding>
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
         </state>
       </provider>
     </entry>
@@ -371,6 +655,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="180">
           <caret line="2" column="58" selection-start-line="2" selection-start-column="58" selection-end-line="2" selection-end-column="58" />
+<<<<<<< HEAD
+=======
+          <folding />
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
         </state>
       </provider>
     </entry>
@@ -386,6 +674,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2388" max-vertical-offset="9432">
           <caret line="160" column="26" selection-start-line="160" selection-start-column="12" selection-end-line="160" selection-end-column="26" />
+<<<<<<< HEAD
+=======
+          <folding />
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
         </state>
       </provider>
     </entry>
@@ -538,6 +830,29 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="568">
+          <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18980668" vertical-offset="0" max-vertical-offset="1242">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
     <entry file="file://$PROJECT_DIR$/ddelivery/Shop.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="2142">
@@ -580,6 +895,16 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/ddelivery/events.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06132879" vertical-offset="0" max-vertical-offset="587">
+          <caret line="2" column="75" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
     <entry file="file://$PROJECT_DIR$/ddelivery/i18n.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.6933798" vertical-offset="972" max-vertical-offset="1944">
@@ -605,6 +930,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.259259" vertical-offset="12674" max-vertical-offset="19836">
           <caret line="715" column="9" selection-start-line="715" selection-start-column="9" selection-end-line="715" selection-end-column="9" />
+<<<<<<< HEAD
+=======
+          <folding />
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
         </state>
       </provider>
     </entry>
@@ -615,10 +944,37 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/ddelivery/DDelivery/__custom.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2015" max-vertical-offset="5472">
+          <caret line="129" column="52" selection-start-line="129" selection-start-column="43" selection-end-line="129" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ddelivery/__custom.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-38.666668" vertical-offset="2754" max-vertical-offset="7164">
+          <caret line="211" column="0" selection-start-line="211" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
+          <folding>
+            <marker date="1413470464046" expanded="true" signature="8887:8934" placeholder="SELECT DISTI..prefix_ps_dd_cities..." />
+            <marker date="1413470464046" expanded="true" signature="9226:9405" placeholder="SELECT type,.._prefixps_dd_cities WHERE..." />
+            <marker date="1413470464046" expanded="true" signature="10409:10501" placeholder="SELECT DISTI.._prefixps_dd_cities WHERE..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
     <entry file="file://$PROJECT_DIR$/ddelivery/permissions.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="180">
           <caret line="2" column="58" selection-start-line="2" selection-start-column="58" selection-end-line="2" selection-end-column="58" />
+<<<<<<< HEAD
+=======
+          <folding />
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
         </state>
       </provider>
     </entry>
@@ -626,18 +982,31 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="1044">
           <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="18" selection-end-column="5" />
+<<<<<<< HEAD
+=======
+          <folding>
+            <element signature="e#8#20#0#PHP" expanded="true" />
+          </folding>
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ddelivery/DDelivery/public_html/application/classes/DDelivery/Order/DDeliveryOrder.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.4053156" vertical-offset="2388" max-vertical-offset="9432">
           <caret line="160" column="26" selection-start-line="160" selection-start-column="12" selection-end-line="160" selection-end-column="26" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="2388" max-vertical-offset="9432">
+          <caret line="160" column="26" selection-start-line="160" selection-start-column="12" selection-end-line="160" selection-end-column="26" />
+          <folding />
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ddelivery/DDelivery/public_html/application/classes/DDelivery/Adapter/DShopAdapter.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.15503876" vertical-offset="2578" max-vertical-offset="12384">
           <caret line="160" column="39" selection-start-line="160" selection-start-column="39" selection-end-line="160" selection-end-column="39" />
         </state>
@@ -669,10 +1038,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12384">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="2578" max-vertical-offset="12384">
+          <caret line="160" column="39" selection-start-line="160" selection-start-column="39" selection-end-line="160" selection-end-column="39" />
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.0625" vertical-offset="526" max-vertical-offset="1242">
@@ -691,18 +1065,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.245614" vertical-offset="4207" max-vertical-offset="34488">
           <caret line="254" column="24" selection-start-line="254" selection-start-column="24" selection-end-line="254" selection-end-column="24" />
+=======
+    <entry file="file://$PROJECT_DIR$/ddelivery/Adapter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1985" max-vertical-offset="11772">
+          <caret line="123" column="16" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ddelivery/tmp/assets/cc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2178" max-vertical-offset="2286">
+          <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/ddelivery/DDelivery/__custom.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-69.62963" vertical-offset="424" max-vertical-offset="5472">
           <caret line="129" column="52" selection-start-line="129" selection-start-column="43" selection-end-line="129" selection-end-column="52" />
+=======
+    <entry file="file://$USER_HOME$/temp/РСЃРїРѕР»СЊР·СѓРµРјС‹Рµ РїР»Р°РіРёРЅС‹">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.040358745" vertical-offset="0" max-vertical-offset="892">
+          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/ddelivery/__custom.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.0" vertical-offset="0" max-vertical-offset="7272">
@@ -719,10 +1115,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="905">
           <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+=======
+    <entry file="file://$PROJECT_DIR$/ddelivery/DDelivery/public_html/application/classes/DDelivery/DDeliveryUI.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.666667" vertical-offset="22050" max-vertical-offset="34488">
+          <caret line="1248" column="77" selection-start-line="1248" selection-start-column="77" selection-end-line="1248" selection-end-column="77" />
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$USER_HOME$/temp/__custom.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.666667" vertical-offset="1242" max-vertical-offset="7236">
@@ -739,14 +1142,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.3333334" vertical-offset="0" max-vertical-offset="198">
           <caret line="2" column="66" selection-start-line="2" selection-start-column="66" selection-end-line="2" selection-end-column="66" />
+=======
+    <entry file="file://$USER_HOME$/temp/dd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2286">
+          <caret line="16" column="59" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/ddelivery/Adapter.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34494773" vertical-offset="0" max-vertical-offset="11826">
           <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+=======
+    <entry file="file://$PROJECT_DIR$/ddelivery/tmp/assets/dd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30461538" vertical-offset="0" max-vertical-offset="2286">
+          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+>>>>>>> e55e68c0a49a746da523a1b7b0c95e3d7e2b8337
           <folding />
         </state>
       </provider>
