@@ -74,13 +74,23 @@ class __ddelivery_adm extends baseModuleAdmin
      */
     public function DdMain()
     {
-
         $regedit = regedit::getInstance();
+
+        $sel = new selector('objects');
+        $sel->types('object-type')->name('emarket', 'payment');
+
+        $coll = umiObjectTypesCollection::getInstance();
+        foreach ($sel->result() as $obj) {
+            $typeId = $obj->getTypeId();
+            $payments[$obj->getId()] = $coll->getType($typeId)->getName() . ' : ' . $obj->getName();
+        }
+
 
         $params['main'] = Array(
             'string:api_key' => null,
             'select:test' => array('1' => 'тестирование (stage)', '0' => 'Боевое (client)'),
             'string:declared_percent' => null,
+            'select:payment' => $payments
         );
 
 
@@ -91,6 +101,7 @@ class __ddelivery_adm extends baseModuleAdmin
             $regedit->setVal('//modules/ddelivery/dd.api_key', $params['main']['string:api_key']);
             $regedit->setVal('//modules/ddelivery/dd.test', $params['main']['select:test']);
             $regedit->setVal('//modules/ddelivery/dd.declared_percent', $params['main']['string:declared_percent']);
+            $regedit->setVal('//modules/ddelivery/dd.payment', $params['main']['select:payment']);
 
             $this->chooseRedirect();
         }
@@ -98,6 +109,7 @@ class __ddelivery_adm extends baseModuleAdmin
         $params['main']['string:api_key'] = $regedit->getVal('//modules/ddelivery/dd.api_key');
         $params['main']['select:test']['value'] = $regedit->getVal('//modules/ddelivery/dd.test');
         $params['main']['string:declared_percent'] = $regedit->getVal('//modules/ddelivery/dd.declared_percent');
+        $params['main']['select:payment']['value'] = $regedit->getVal('//modules/ddelivery/dd.payment');
 
 
         $this->setDataType('settings');

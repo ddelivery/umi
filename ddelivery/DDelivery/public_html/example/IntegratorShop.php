@@ -69,14 +69,16 @@ class IntegratorShop extends \DDelivery\Adapter\PluginFilters{
     public function getDbConfig(){
 
         return array(
-            'pdo' => new \PDO('mysql:host=localhost;dbname=ddelivery', 'root', 'root', array(\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")),
-            'prefix' => '',
-        );
-        return array(
             'type' => self::DB_SQLITE,
             'dbPath' => $this->getPathByDB(),
             'prefix' => '',
         );
+
+        return array(
+            'pdo' => new \PDO('mysql:host=localhost;dbname=ddelivery', 'root', 'root', array(\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")),
+            'prefix' => '',
+        );
+
 
         $connect = mysql_connect('localhost', 'root', '0');
         mysql_select_db('bitrix', $connect);
@@ -130,7 +132,7 @@ class IntegratorShop extends \DDelivery\Adapter\PluginFilters{
      */
     public function getPhpScriptURL(){
         // Тоесть до этого файла
-        return 'ajax.php';
+        return 'ajax.php?' . http_build_query( $_GET ) ;
     }
 
     /**
@@ -165,6 +167,7 @@ class IntegratorShop extends \DDelivery\Adapter\PluginFilters{
      * @return int[]
      */
     public function filterCompanyPointCourier(){
+        return  array_keys( \DDelivery\DDeliveryUI::getCompanySubInfo() );
         //return array();
         return array	(4,21,29,23,27,28,20,30,31,11,16,22,17,3,14,1,13,18,6,
                          26,25,24,7,35,36,37,39,40,42,43,44,45,46,47,48,49);
@@ -177,7 +180,7 @@ class IntegratorShop extends \DDelivery\Adapter\PluginFilters{
      * @return int[]
      */
     public function filterCompanyPointSelf(){
-        //return array();
+        return  array_keys( \DDelivery\DDeliveryUI::getCompanySubInfo() );
         return array	(4,21,29,23,27,28,20,30,31,11,16,22,17,3,14,1,13,18,6,
                          26,25,24,7,35,36,37,39,40,42,43,44,45,46,47,48,49);
         // TODO: Implement filterCompanyPointSelf() method.
@@ -216,7 +219,7 @@ class IntegratorShop extends \DDelivery\Adapter\PluginFilters{
      * @return bool
      */
     public function isPayPickup(){
-        return false;
+            return false;
         return true;
         // TODO: Implement isPayPickup() method.
     }
@@ -290,7 +293,7 @@ class IntegratorShop extends \DDelivery\Adapter\PluginFilters{
      * @return string[]
      */
     public function getClientAddress() {
-        return array('Улица','Дом','Корпус','Квартира','5');
+        return array('Улица 1','Дом 2','Корпус 3','Квартира 4','5');
     }
 
     public function getClientEmail(){
@@ -373,6 +376,9 @@ class IntegratorShop extends \DDelivery\Adapter\PluginFilters{
         return true;
     }
 
+    public function getClientZipCode(){
+       return 14000;
+    }
 
     /**
      * Возвращает бинарную маску обязательных полей для курьера
@@ -419,7 +425,7 @@ class IntegratorShop extends \DDelivery\Adapter\PluginFilters{
      * @return array
      */
     public function getCustomCourierCompanies(){
-        return array();
+        //return array();
         return array(
             'custom_company1' => array(
                 'city' => 151184,
@@ -447,7 +453,7 @@ class IntegratorShop extends \DDelivery\Adapter\PluginFilters{
      * @return array
      */
     public function getCustomSelfCompanies(){
-        return array();
+        //return array();
         return array(
             'custom_self_company1' => array(
                 'city' => 151184,
@@ -475,7 +481,7 @@ class IntegratorShop extends \DDelivery\Adapter\PluginFilters{
      * @return array
      */
     public function getCustomSelfPoints(){
-        return array();
+        //return array();
         return array(
             1000900 => array(
                 '_id' => 1000900,

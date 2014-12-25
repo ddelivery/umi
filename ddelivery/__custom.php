@@ -59,6 +59,7 @@ abstract class __ddelivery_custom
      */
     public function ajax()
     {
+        error_reporting(0);
         try {
             $IntegratorShop = new Adapter();
             $ddeliveryUI = new DDeliveryUI( $IntegratorShop );
@@ -342,11 +343,15 @@ abstract class __ddelivery_custom
         try{
             $IntegratorShop = new Adapter();
             $ddeliveryUI = new DDeliveryUI($IntegratorShop);
-            $order = $ddeliveryUI->initOrder(6);
-            $order->paymentVariant = '2';
-            $ddeliveryUI->sendOrderToDD($order);
+            $order = $ddeliveryUI->initOrder(33);
+            echo $IntegratorShop->filterPointByPaymentTypeSelf($order);
+            echo '<pre>';
+            //print_r($ddeliveryUI->getAllOrders());
+            echo '</pre>';
+            exit();
+
         }catch(Exception $e){
-            $IntegratorShop->logMessage($e);
+            $ddeliveryUI->logMessage($e);
             echo $e->getMessage();
             exit;
         }

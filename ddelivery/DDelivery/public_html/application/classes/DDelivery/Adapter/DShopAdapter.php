@@ -29,7 +29,7 @@ abstract class DShopAdapter{
      */
     const CACHING_TYPE_INDIVIDUAL = 'individual';
 
-    const SDK_VERSION = '2.1.8.1';
+    const SDK_VERSION = '2.2';
     /**
      * Имя редактируется
      */
@@ -102,11 +102,11 @@ abstract class DShopAdapter{
     const FIELD_REQUIRED_EMAIL = 32768;
 
     /**
-     * Адресс, квартира редактируется
+     * Zip редактируется
      */
     const FIELD_EDIT_INDEX = 65536;
     /**
-     * Адресс, квартира обязательное
+     * Zip обязательное
      */
     const FIELD_REQUIRED_INDEX = 131072;
 
@@ -145,6 +145,14 @@ abstract class DShopAdapter{
                                         DDStatusProvider::ORDER_RETURNED_MI => 'Возвращен в ИМ',
                                         DDStatusProvider::ORDER_WAITING => 'Ожидание',
                                         DDStatusProvider::ORDER_CANCEL => 'Отмена' );
+
+
+    /**
+     * Получить массив с соответствие статусов DDelivery
+     * @return array
+     */
+    public abstract  function getCmsOrderStatusList();
+
 
     /**
      * Настройки базы данных
@@ -201,14 +209,21 @@ abstract class DShopAdapter{
         return DShopAdapter::CACHING_TYPE_INDIVIDUAL;
     }
 
+
+    /**
+     * Получить папку для php шаблона для сдк
+     *
+     * @return string
+     */
+    public abstract function getTemplateScript();
+
+
     /**
      * Получить название шаблона для сдк ( разные цветовые схемы )
      *
      * @return string
      */
-    public function getTemplate(){
-        return 'default';
-    }
+    public abstract  function getTemplate();
     /**
      * Возвращаем сервер для логгирования ошибок
      */
@@ -362,7 +377,7 @@ abstract class DShopAdapter{
             'articule 222',
             'Веселый клоун'	//	string $name Название вещи
         );
-        $products[] = new DDeliveryProduct(2, 10, 13, 15, 0.3, 1500, 2, 'articule another', 'Грустный клоун');
+        //$products[] = new DDeliveryProduct(2, 10, 13, 15, 0.3, 1500, 2, 'articule another', 'Грустный клоун');
         return $products;
     }
     /**
@@ -439,7 +454,16 @@ abstract class DShopAdapter{
      * @return string|null
      */
     public function getClientPhone() {
-        return '79211234567'; //null;
+        return null;
+    }
+
+    /**
+     * Если вы знаете индекс(zip code), то верните его тут
+     * @return string|null
+     */
+    public function getClientZipCode()
+    {
+        return null;
     }
 
     /**
@@ -689,4 +713,19 @@ abstract class DShopAdapter{
     public abstract function getSelfPaymentVariants($order);
 
     public abstract function getCourierPaymentVariants($order);
+
+    /**
+     * Возвращает массив с различными надписями на модуле
+     * @return array
+     */
+    public abstract function  getCaptions();
+
+    /**
+     * Возвращает массив с продуктом заданним определенним условием,
+     * если би он лежал в корзине (Исользуется в виджете когда ми расчитиваем для id продукта
+     * стоимость доставки)
+     *
+     * @return mixed
+     */
+    public abstract function getSingleProductInCart();
 }
