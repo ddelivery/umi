@@ -114,10 +114,16 @@ class Adapter extends \DDelivery\Adapter\PluginFilters
                 $page_id = $link['0']->getId('id');
                 //Получим элемент по id страницы
                 $element = $hierarchy->getElement($page_id);
-                $width = ( $width = $element->getObject()->getPropById( $widthField ) AND is_numeric( $width ) ) ? $width->getValue() : $widthDefault;
-                $height = ( $height = $element->getObject()->getPropById( $heightField ) AND is_numeric( $height ) ) ? $height->getValue() : $heightDefault;
-                $length = ( $length = $element->getObject()->getPropById( $lengthField ) AND is_numeric( $length ) ) ? $length->getValue() : $lengthDefault;
-                $weight = ( $weight = $element->getObject()->getPropById( $weightField ) AND is_numeric( $weight ) ) ? $weight->getValue() : $weightDefault;
+
+                $width = $element->getObject()->getPropById($widthField);
+                $height = $element->getObject()->getPropById( $heightField );
+                $length = $element->getObject()->getPropById( $lengthField );
+                $weight = $element->getObject()->getPropById( $weightField );
+
+                $width = ( ( $width )?$width->getValue():$widthDefault );
+                $height = ( ( $height )?$height->getValue():$heightDefault );
+                $length = ( ( $length )?$length->getValue():$lengthDefault );
+                $weight = ( ( $weight )?$weight->getValue():$weightDefault );
 
 
 

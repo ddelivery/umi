@@ -64,6 +64,7 @@ abstract class __ddelivery_custom
             $ddeliveryUI = new DDeliveryUI( $IntegratorShop );
             $ddeliveryUI->render( isset( $_REQUEST ) ? $_REQUEST : array() );
         } catch (Exception $e) {
+            echo $e->getMessage();
             $IntegratorShop->logMessage($e);
         }
         exit;
@@ -239,16 +240,12 @@ abstract class __ddelivery_custom
 
     public function cities()
     {
-        /**
-         * Настройки соединения
-         */
+
         $adapter = new Adapter();
         $prefix = $adapter->getDbConfig();
         $prefix = $prefix['prefix'];
 
-        /**
-         * Поиск по городам и регионам
-         */
+
         $citiName = '%' . $_GET['term'] . '%';
         if ($_GET['region'] == null OR $_GET['region'] == 'undefined') {
             $regionQuery = '';
