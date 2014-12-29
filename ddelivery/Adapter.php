@@ -301,13 +301,14 @@ class Adapter extends \DDelivery\Adapter\PluginFilters
      * Возвращаем способ оплаты константой PluginFilters::PAYMENT_, предоплата или оплата на месте. Курьер
      * @return int
      */
-    public function filterPointByPaymentTypeCourier($order)
-    {
-        return self::PAYMENT_POST_PAYMENT;
-        // выбираем один из 3 вариантов(см документацию или комменты к констатам)
-        return self::PAYMENT_POST_PAYMENT;
+    public function filterPointByPaymentTypeCourier($order){
+        if( $order->paymentVariant == $this->regedit->getVal('//modules/ddelivery/dd.payment')){
+            return self::PAYMENT_POST_PAYMENT;
+        }
         return self::PAYMENT_PREPAYMENT;
-        return self::PAYMENT_NOT_CARE;
+        // выбираем один из 3 вариантов(см документацию или комменты к констатам)
+        //return self::PAYMENT_POST_PAYMENT;
+        //return self::PAYMENT_NOT_CARE;
         // TODO: Implement filterPointByPaymentTypeCourier() method.
     }
 
@@ -317,12 +318,18 @@ class Adapter extends \DDelivery\Adapter\PluginFilters
      */
     public function filterPointByPaymentTypeSelf($order)
     {
+        if( $order->paymentVariant == $this->regedit->getVal('//modules/ddelivery/dd.payment')){
+            return self::PAYMENT_POST_PAYMENT;
+        }
+        return self::PAYMENT_PREPAYMENT;
+        /*
         return self::PAYMENT_POST_PAYMENT;
         // выбираем один из 3 вариантов(см документацию или комменты к констатам)
         return self::PAYMENT_POST_PAYMENT;
         return self::PAYMENT_PREPAYMENT;
         return self::PAYMENT_NOT_CARE;
         // TODO: Implement filterPointByPaymentTypeSelf() method.
+        */
     }
 
     /**

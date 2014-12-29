@@ -92,6 +92,7 @@ abstract class __ddelivery_custom
 
                 $status = $event->getParam("new-status-id");
                 $payment = $CmsOrder->getPaymentStatus();
+
                 $ddeliveryUI->onCmsOrderFinish($sdkOrderId, $CmsOrderId, $status, $payment);
 
 // $payment – идентификатор способа оплаты в пределах CMS

@@ -45,7 +45,10 @@ $i18n = Array(
 
     'group-main' => 'Группа основных настроек',
     'option-api_key' => 'API Ключ:',
+
     'option-test' => 'Режим работы:',
+    'option-payment' => 'Наложенный платеж:',
+
     'option-declared_percent' => 'Какой % от стоимости товара страхуется:',
 
 
