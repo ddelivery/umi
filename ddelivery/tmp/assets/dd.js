@@ -14,8 +14,8 @@ function DDeliveryStart() {
         change: function (data) {
             $('#continue').html('<a href="/emarket/purchase/payment/choose/">Продолжить оформление</a>');
             closePopup();
-            $('#resultofchoise').html(data.comment + ' Стоимость доставки ' + data.clientPrice + ' руб.');
-            //alert(data.comment + ' интернет магазину нужно взять с пользователя за доставку ' + data.clientPrice + ' руб. OrderId: ' + data.orderId);
+            $('#resultofchoise').html( ' Стоимость доставки ' + data.clientPrice + ' руб.');
+            $('#resultofchoise').append('<div>' + data.comment + '</div>');
         }
     };
 

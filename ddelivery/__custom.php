@@ -120,11 +120,75 @@ abstract class __ddelivery_custom
      */
     public function onCmsOrderFinish(iUmiEventPoint $event)
     {
+
+        if ($event->getMode() == "before" && $event->getParam( "old-status-id" ) != $event->getParam( "new-status-id" )) {
+            $CmsOrder = $event->getRef( "order" );
+            $CmsOrderId = $CmsOrder->getId();
+
+            $sdkOrderId = regedit::getInstance()->getVal( '//modules/ddelivery/orderID_' . $CmsOrderId . '_orderSDkId' );
+            try {
+                $IntegratorShop = new Adapter();
+                $ddeliveryUI = new DdeliveryUI( $IntegratorShop, true );
+                $order = $ddeliveryUI->initOrder($sdkOrderId);
+                $point = $order->getPoint();
+                $CmsOrder->setValue('delivery_price', $ddeliveryUI->getClientPrice($point, $order));
+                /*
+                $CmsOrder->setValue('actualPrice', 1555);
+                echo $CmsOrder->getValue('delivery_price');
+                echo $CmsOrder->getValue('actualPrice');
+                //echo $CmsOrder->getActualPrice();
+                refresh()
+                */
+                $CmsOrder->refresh();
+                $CmsOrder->setName($ddeliveryUI->getPointComment($order));
+                //print_r($ddeliveryUI->getClientPrice($point, $order));//initOrder($sdkOrderId));
+                //$status = $event->getParam( "new-status-id" );
+                //$payment = $CmsOrder->getValue( 'payment_id' );
+
+                //Отправление данных на сервер
+                //$ddeliveryUI->onCmsOrderFinish( $sdkOrderId, $CmsOrderId, $status, $payment );
+
+            } catch (\DDelivery\DDeliveryException $e) {
+                $IntegratorShop->logMessage($e);
+            }
+            /*
+            print_r(        get_class_methods($CmsOrder) );
+            print_r( $CmsOrder->getActualPrice());
+            print_r($CmsOrder->setValue('delivery_price', 120));
+            print_r($CmsOrder->getDeliveryPrice());
+            echo '<pre>';
+            //print_r($event);
+            echo '</pre>';
+
+
+            $CmsOrderId = $CmsOrder->getId();
+
+            $sdkOrderId = regedit::getInstance()->getVal( '//modules/ddelivery/orderID_' . $CmsOrderId . '_orderSDkId' );
+            try {
+                $IntegratorShop = new Adapter();
+                $ddeliveryUI = new DdeliveryUI( $IntegratorShop, true );
+                $order = $ddeliveryUI->initOrder($sdkOrderId);
+                $point = $order->getPoint();
+                print_r($ddeliveryUI->getClientPrice($point, $order));//initOrder($sdkOrderId));
+                //$status = $event->getParam( "new-status-id" );
+                //$payment = $CmsOrder->getValue( 'payment_id' );
+
+                //Отправление данных на сервер
+                //$ddeliveryUI->onCmsOrderFinish( $sdkOrderId, $CmsOrderId, $status, $payment );
+
+            } catch (\DDelivery\DDeliveryException $e) {
+                //$IntegratorShop->logMessage($e);
+            }
+
+            exit;
+            */
+        }
         if ($event->getMode() == "after" && $event->getParam( "old-status-id" ) != $event->getParam( "new-status-id" )) {
             $CmsOrder = $event->getRef( "order" );
             $CmsOrderId = $CmsOrder->getId();
 
             $sdkOrderId = regedit::getInstance()->getVal( '//modules/ddelivery/orderID_' . $CmsOrderId . '_orderSDkId' );
+
 
             try {
                 $IntegratorShop = new Adapter();
@@ -239,8 +303,7 @@ abstract class __ddelivery_custom
     }
 
 
-    public function cities()
-    {
+    public function cities(){
 
         $adapter = new Adapter();
         $prefix = $adapter->getDbConfig();
@@ -338,9 +401,10 @@ abstract class __ddelivery_custom
     public function test()
     {
         try{
+            echo 'xxxx';
             $IntegratorShop = new Adapter();
             $ddeliveryUI = new DDeliveryUI($IntegratorShop);
-            $order = $ddeliveryUI->initOrder(33);
+            //$order = $ddeliveryUI->initOrder(33);
             echo $IntegratorShop->filterPointByPaymentTypeSelf($order);
             echo '<pre>';
             //print_r($ddeliveryUI->getAllOrders());

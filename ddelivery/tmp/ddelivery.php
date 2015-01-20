@@ -12,7 +12,7 @@ class ddeliveryDelivery extends delivery
 
     public function getDeliveryPrice(order $order)
     {
-
+        return 120;
         if (!def_module::isXSLTResultMode()) {
 
             return <<<END
@@ -42,5 +42,7 @@ END;
 <span id = "resultofchoise" >Выберите подходящий вам способ доставки:</span> <a href="javascript:void(0)" class="trigger">Выбор</a>
 END;
         }
+
     }
+
 }

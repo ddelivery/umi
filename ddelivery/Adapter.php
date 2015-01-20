@@ -222,6 +222,19 @@ class Adapter extends \DDelivery\Adapter\PluginFilters
     }
 
     /**
+     * Возможность что - нибудь добавить к информации
+     * при окончании оформления заказа
+     *
+     * @param $order DDeliveryOrder
+     * @param $resultArray
+     */
+    public function onFinishResultReturn( $order, $resultArray ){
+        //print_r($resultArray);
+
+        return $resultArray;
+    }
+
+    /**
      * Метод будет вызван когда пользователь закончит выбор способа доставки
      *
      * @param int $orderId
